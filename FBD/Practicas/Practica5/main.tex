@@ -1,0 +1,86 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Practica5}
+\author{José Camilo García Ponce}
+
+\begin{document}
+
+Practica 5 \\
+García Ponce José Camilo \\
+
+\begin{itemize}
+    \item Ejercicio 1
+    \begin{itemize}
+        \item a) Obtener el nombre completo de las personas. \\
+        $PerNom \leftarrow Persona \bowtie_{id\textunderscore Persona} Persona\textunderscore nombre\textunderscore completo$ \\
+        $Resultado \leftarrow \pi_{nombre\textunderscore completo} (PerNom)$ \\
+
+        \item b) Obtener los nombres y correos de las personas. \\
+        $PerNom \leftarrow Persona \bowtie_{id\textunderscore Persona} Persona\textunderscore nombre\textunderscore completo$ \\
+        $Resultado \leftarrow \pi_{nombre\textunderscore completo, correo} (PerNom)$ \\
+
+        \item c) Obtener nombre y correo de los empleados de una sucursal dada (puedes suponer que la sucursal es con id=1). \\
+        $PerNom \leftarrow Persona \bowtie_{id\textunderscore persona} Persona\textunderscore nombre\textunderscore completo$ \\
+        $NomSuc \leftarrow PerNom \bowtie_{id\textunderscore persona} Empleado$ \\
+        $Resultado \leftarrow \pi_{nombre\textunderscore completo, correo} (\sigma_{id\textunderscore sucursal = 1}(PerNomSuc))$ \\
+
+        \item d) Obtener nombre de las personas junto a la sucursal a la que pertenecen. \\
+        $NomCli \leftarrow \pi_{nombre\textunderscore completo, id\textunderscore sucursal} (Persona\textunderscore nombre\textunderscore completo \bowtie_{id\textunderscore persona} Clientes)$ \\
+        $NomSuc \leftarrow \pi_{nombre\textunderscore completo, id\textunderscore sucursal} (Persona\textunderscore nombre\textunderscore completo \bowtie_{id\textunderscore persona} Empleado)$ \\
+        $Resultado \leftarrow  \pi_{nombre\textunderscore completo, id\textunderscore sucursal} (NomSuc \cup NomCli)$ \\
+
+        \item e) Obtener el nombre de las personas con adeudos en una sucursal dada (puedes suponer que la sucursal es con id=1). \\
+        $NomCli \leftarrow Cliente \bowtie_{id\textunderscore persona} Persona\textunderscore nombre\textunderscore completo$ \\
+        $AdeSi \leftarrow \sigma_{adeudo > \$ 0.00} (Prestamos)$ \\
+        $NomCliAde \leftarrow NomCli \bowtie_{id\textunderscore cliente} AdeSi$ \\
+        $Resultado \leftarrow \pi_{nombre\textunderscore completo} (NomCliAde)$ \\
+
+        \item f) Obtener todas las tarjetas de débito de una sucursal dada puedes suponer que la sucursal es con id=1). \\
+        $CliTarDeb \leftarrow Clientes \bowtie_{id\textunderscore cliente} Tarjeta\textunderscore Debito$ \\
+        $Resultado \leftarrow \pi_{id\textunderscore cliente, id\textunderscore tarjeta\textunderscore credito} (\sigma_{id\textunderscore sucursal = 1} (CliTarDeb))$ \\
+
+        \item g) Obtener nombres y dirección de las personas con préstamos. \\
+        $CliPres \leftarrow \pi_{id\textunderscore cliente, id\textunderscore persona} (Clientes \bowtie_{id\textunderscore cliente} Prestamos)$ \\
+        $NomCliePres \leftarrow CliPres \bowtie_{id\textunderscore persona} Persona\textunderscore nombre\textunderscore completo$ \\
+        $Resultado \leftarrow \pi_{nombre\textunderscore completo, direccion} (NomCliePres \bowtie_{id\textunderscore cliente} Clientes\textunderscore direccion)$ \\
+
+        \item h) Obtener el conjunto (es conjunto no consulta) de nombres de las personas. \\
+        $Resultado \leftarrow \pi_{nombre\textunderscore completo} (Persona\textunderscore Nombre\textunderscore Completo)$ \\
+
+        \item i) Obtener los gerentes de cada sucursal. \\
+        $GerId \textunderscore \pi_{id\textunderscore puesto} (\sigma_{Nombre\textunderscore puesto = "Gerente"} (Puesto))$ \\
+        $Resultado \leftarrow GerId \bowtie_{id\textunderscore puesto} Empleado$ \\
+
+        \item j) Obtener los nombres y direcciones de los clientes preferenciales. \\
+        $CliPref \leftarrow \pi_{id\textunderscore cliente, id\textunderscore persona} (Clientes \bowtie_{id\textunderscore cliente} Clientes\textunderscore Preferenciales)$ \\
+        $NomCliePref \leftarrow CliPref \bowtie_{id\textunderscore persona} Persona\textunderscore nombre\textunderscore completo$ \\
+        $Resultado \leftarrow \pi_{nombre\textunderscore completo, direccion} (NomCliePref \bowtie_{id\textunderscore cliente} Clientes\textunderscore direccion)$ \\
+        
+    \end{itemize}
+
+    \item Ejercicio 2
+    \begin{itemize}
+        \item a) Dado el nombre de una enfermedad, conocer el nombre y domicilio de todos los pacientes que la han padecido. \\
+        $EnfPac \leftarrow Enfermedad \bowtie_{idEnfermedad} Padecio$ \\
+        $ID\textunderscore PacEnf \leftarrow \pi_{idPaciente}(\sigma_{Enombre = "NombreEnfermedad"}(EnfPac))$ \\
+        $Resultado \leftarrow \pi_{Pnombre, Pdomicilio} (Paciente \bowtie_{idPaciente} ID\textunderscore PacEnf)$ \\
+
+        \item b) Conocer el nombre de todas las enfermedades contagiosas, y para cada una de éstas, conocer el nombre de todos los pacientes que las hayan padecido. \\
+        $EnfCont \leftarrow \pi_{idEnfermedad, Enombre} (\sigma_{Tipo = "contagiosa"}(Enfermedad))$ \\
+        $Resultado1 \leftarrow \pi_{Enombre} (EnfCont)$ \\
+        $PadEnfCont \leftarrow EnfCont \bowtie_{idEnfermedad} Padecio$ \\
+        $PacEnfCont \leftarrow PadEnfCont \bowtie_{idPaciente} Paciente$ \\
+        $Resultado2 \leftarrow \pi_{Enombre, Pnombre} (PacEnfCont)$ \\
+
+        \item c) Dado el nombre de una enfermedad, conocer el nombre de todos los pacientes para los cuales su padre o su madre hayan padecido dicha enfermedad. \\
+        $EnfPac \leftarrow Enfermedad \bowtie_{idEnfermedad} Padecio$ \\
+        $ID\textunderscore PacEnf \leftarrow \pi_{idPaciente}(\sigma_{Enombre = "NombreEnfermedad"}(EnfPac))$ \\
+        $Familia \leftarrow Paciente \bowtie_{idPaciente} Familiar\textunderscore De$ \\
+        $FamiliaEnf \leftarrow Familia \bowtie_{Familiar\textunderscore idPaciente = idPaciente} ID\textunderscore PacEnf$ \\
+        $Resultado \leftarrow \pi_{Pnombre} (\sigma_{Parentesco = "hijo" \vee Parentesco = "hija"} (FamiliaEnf))$ \\
+        
+    \end{itemize}
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,32 @@
+Describe los principales problemas si se guardara la información en un archivo de texto cuando deseamos:
+● Buscar un registro específico en el archivo
+    Puede a ver problemas cuando se buscan registros con nombres similares o iguales, ya que se puede confundir con otro registro
+    Dependiendo como guardemos en el archivo puede pasar que algun caracter nos pueda causar problemas para guardar o buscar
+● Agregar nuevos productos
+    Verificar que no exista ese producto
+    Ver que el nuevo producto no contenga caracteres que nos puedan causar problemas al guardar en el archivo
+
+¿Qué problemas tuviste para visualizar los datos?
+    Es dificil visualizar los datos cuando son muchos, ya que puede ser algo pesado
+    Tambien a veces puede ser algo confuso visualizar los datos cuando solo se tiene un archivo de texto
+
+¿Es bueno usar hojas de cálculo para guardar la información?
+    Algunas veces, si lo que se quiere hacer no es muy complejo o no van a ser muchos elementos, si es bueno usar hojas de calculo
+    Pero si se quiere hacer algo mas complejo o se van a tener muchos elementos, no es bueno usar hojas de calculo
+
+¿Qué diferencias existen entre una base de datos y una hoja de cálculo?
+    En las bases de datos se pueden hacer consultas y manejar una cantidad de datos mas grande con mayor facilidad
+    Mientras que en las hojas de calculo puede ser mas facil hacer operaciones faciles y visualizar los datos
+
+¿Qué complejidad tienen las consultas en una hoja de cálculo y en una base de datos?
+    En las hojas de calculo las consultas son lineales, ya que vamos revisando cada elemento hasta encontrar el que queremos
+    En las bases de datos las consultas pueden ser desde lineales hasta cuadraticas, todo depende de la implementacion que se haga y la consulta
+
+¿Cuál fue el primer sistema manejador de base de datos que se creó?
+    The Integrated Data Store (IDS) diseñado por Charles Bachman en 1960
+
+¿Qué otro tipo de sistemas persistentes se te ocurren?
+    Archivos de texto, imagenes, videos y audio
+
+¿En qué casos las hojas de cálculo son buenas para guardar información?
+    Cuando no se tiene una gran cantidad de datos y no se requiere hacer consultas complejas

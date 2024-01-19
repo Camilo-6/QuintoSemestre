@@ -1,0 +1,118 @@
+Practica 6\
+García Ponce José Camilo\
+
+-   Ejercicio 1\
+    ¿Cuál es la llave para R? Normalizar a R en la forma 2NF y luego en
+    la forma 3NF.\
+
+    -   Considera la relación $R = \{A, B, C, D, E, F, G, H, I, J\}$ y
+        el conjunto de dependencias funcionales
+        $F = \{ \{A, B\} \rightarrow \{C\}, \{A\} \rightarrow \{D, E\}, \{B\} \rightarrow \{F\}, \{F\} \rightarrow \{G,H\}, \{D\} \rightarrow \{I, J\} \}$.\
+        La llave es $\{A,B\}$, ya que $A$ determina a $D$, $E$ y $A$,
+        $B$ determina a $F$ y $B$, $A$ y $B$ determinan a $C$, $F$
+        determina a $G$ y $H$, $D$ determina a $I$ y $J$\
+        La forma 2NF es $R_1 = \{A,B,C\}$, $R_2 = \{A,D,E,I,J\}$ y
+        $R_3 = \{B,F,G,H\}$, con $\{A,B\}$ la llave de $R_1$, $\{A\}$ la
+        llave de $R_2$ y $\{B\}$ la llave de $R_3$, creo que si cumple
+        2NF pero la llave de $R_2$ y $R_3$ no determinan a todos los
+        atributos, por eso es mejor la forma de abajo\
+        La forma 3NF es $R_1 = \{A,B,C\}$, $R_2 = \{A,D,E\}$,
+        $R_3 = \{B,F\}$, $R_4 = \{F,G,H\}$ y $R_5 = \{D,I,J\}$ con
+        $\{A,B\}$ la llave de $R_1$, $\{A\}$ la llave de $R_2$, $\{B\}$
+        la llave de $R_3$, $\{F\}$ la llave de $R_4$ y $\{D\}$ la llave
+        de $R_5$\
+
+    -   Considera la misma relación $R$ con conjunto de dependencias
+        funcionales
+        $G = \{\{A, B\} \rightarrow \{C\}, \{B, D\} \rightarrow \{E, F\}, \{A, D\} \rightarrow \{G, H\}, \{A\} \rightarrow \{I\}, \{H\} \rightarrow \{J\} \}$.\
+        La llave es $\{A,B,D\}$, ya que $A$ determina a $I$ y $A$, $B$
+        determina a $B$, $A$ y $B$ determinan a $C$, $D$ determina a
+        $D$, $B$ y $D$ determinan a $E$ y $F$, $A$ y $D$ determinan a
+        $G$ y $H$, $H$ determina a $J$\
+        La forma 2NF es $R_1 = \{A,B,D\}$, $R_2 = \{A,B,C\}$,
+        $R_3 = \{B,D,E,F\}$, $R_4 = \{A,D,G,H,J\}$ y $R_5 = \{A,I\}$,
+        con $\{A,B,D\}$ la llave de $R_1$, $\{A,B\}$ la llave de $R_2$,
+        $\{B,D\}$ la llave de $R_3$, $\{A,D\}$ la llave de $R_4$ y
+        $\{A\}$ la llave de $R_5$, creo que si cumple 2NF pero la llave
+        de $R_2$ y $R_3$ no determinan a todos los atributos, por eso es
+        mejor la forma de abajo\
+        La forma 3NF es $R_1 = \{A,B,D\}$, $R_2 = \{A,B,C\}$,
+        $R_3 = \{B,D,E,F\}$, $R_4 = \{A,D,G,H\}$, $R_5 = \{A,I\}$ y
+        $R_6 = \{H,J\}$, con $\{A,B,D\}$ la llave de $R_1$, $\{A,B\}$ la
+        llave de $R_2$, $\{B,D\}$ la llave de $R_3$, $\{A,D\}$ la llave
+        de $R_4$, $\{A\}$ la llave de $R_5$ y $\{H\}$ la llave de $R_6$\
+
+-   Ejercicio 2\
+
+    -   ¿Cuál de las siguientes dependencias podrían mantenerse en la
+        relación de arriba? Si la dependencia no se mantiene, explica
+        porqué especificando las tuplas que causan la violación:\
+
+        1.  $A \rightarrow B$\
+            No se mantiene, ya que la tupla 1 tiene 10 en $A$ y b1 en
+            $B$, pero la tupla 2 tiene 10 en $A$ y b2 en $B$\
+
+        2.  $B \rightarrow C$\
+            Si se mantiene\
+
+        3.  $C \rightarrow B$\
+            No se mantiene, ya que la tupla 1 tiene c1 en $C$ y b1 en
+            $B$, pero la tupla 3 tiene c1 en $C$ y b4 en $B$\
+
+        4.  $B \rightarrow A$\
+            No se mantiene, ya que la tupla 1 tiene b1 en $B$ y 10 en
+            $A$, pero la tupla 5 tiene b1 en $B$ y 13 en $A$\
+
+        5.  $C \rightarrow A$\
+            No se mantiene, ya que la tupla 1 tiene c1 en $C$ y 10 en
+            $A$, pero la tupla 5 tiene c1 en $C$ y 13 en $A$\
+
+    -   ¿La relación tiene algún candidato para la llave primaria? En
+        caso de tener, explicar cuál y porqué; si no tiene explicar
+        porqué.\
+        La llave primaria trivial seria usar $\{Tuple\#\}$, pero si la
+        ignoramos la llave primaria puede ser $\{A,B\}$, debido a que
+        como vimos arriba $B \rightarrow C$, entonces podemos determinar
+        a $C$ con base en $B$ y ya solo nos faltaría $A$ para hacer que
+        fuera única, además ninguna dos tuplas tienen valores iguales en
+        $A$ y $B$\
+
+-   Ejercicio 3\
+    Considera la siguiente relación de libros publicados:\
+    $BOOK (Book\_title , Author\_name , Book\_type , List\_price , Author\_affil, Publisher )$\
+    $Author\_affil$ se refiere a la afiliación del autor, es decir la
+    institución a la que pertenece.\
+    Supón que las siguientes dependencias existen:\
+    $Book\_title \rightarrow Publisher , Book\_type$\
+    $Book\_type \rightarrow List\_price$\
+    $Author\_name \rightarrow Author\_affil$\
+
+    -   ¿En qué forma normal está la relación inicialmente? Explica tu
+        respuesta.\
+        Esta en forma 1NF, ya que la llave primaria es
+        $\{Book\_title, Author\_name\}$, ya que no tenemos atributos
+        multivaluados o compuestos, pero tenemos dependencias
+        funcionales parciales,
+        $Book\_title \rightarrow Publisher , Book\_type$ y
+        $Author\_name \rightarrow Author\_affil$, entonces no cumple 2NF
+        y por lo tanto tampco 3NF\
+
+    -   Aplica la normalización hasta que ya no puedas descomponer más
+        las relaciones resultantes. Establece las razones detrás de cada
+        descomposición.\
+        Primero descomponemos en\
+        $BOOK (Book\_title, Author\_name)$\
+        $BOOK_2(Book\_title, Book\_type, List\_price, Publisher)$\
+        $BOOK_3(Author\_name, Author\_affil)$\
+        de esta forma ya no tenemos dependencias funcionales parciales y
+        ahora si cumplimos la 2NF, pero tenemos una dependencia
+        funcional transitiva con $Book\_title \rightarrow Book\_type$ y
+        $Book\_type \rightarrow List\_price$, por lo tanto no cumplimos
+        forma 3NF\
+        Entonces descomponemos en\
+        $BOOK (Book\_title, Author\_name)$\
+        $BOOK_2(Book\_title, Book\_type, Publisher)$\
+        $BOOK_3(Author\_name, Author\_affil)$\
+        $BOOK_4(Book\_type, List\_price)$\
+        de esta forma ya no tenemos dependencias funcionales transitivas
+        y ahora si cumplimos la 3NF\

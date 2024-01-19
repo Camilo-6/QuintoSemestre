@@ -1,0 +1,5 @@
+server: suleiman.db.elephantsql.com
+user: aopcrfmb
+password: 3xASQWNTlOwgjVEeV5e-SoXt9UsrXh1F
+
+
