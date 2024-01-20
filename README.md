@@ -2,4 +2,4 @@
 
 ## Semestre 2024-1 de CC
 
-Prácticas, proyectos, tareas y examenes realizados durante el semestre hola.
+Prácticas, proyectos, tareas y examenes realizados durante el semestre.
