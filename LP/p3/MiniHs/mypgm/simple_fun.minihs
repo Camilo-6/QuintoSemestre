@@ -1,0 +1,4 @@
+let myfun = 
+lam x :: Nat -> x + 3
+in (myfun 5)
+end

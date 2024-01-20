@@ -1,0 +1,3 @@
+let myfun = lam (x : Int) : Float -> x + 3.5 in
+(myfun 5)
+end

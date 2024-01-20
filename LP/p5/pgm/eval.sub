@@ -1,0 +1,8 @@
+let myH = {a=1.0,b=2.0,c=3.0,d=False} in
+let getter = lam (x : Int) : Float + Bool -> if x == 0
+                            then inr_Float(myH[d])
+                            else inl_Bool(myH[b]) in
+case (getter 0) of {inl x => (50 / x) * (10 % x) |
+                    inr y => if y then 20 else 50 }
+end
+end

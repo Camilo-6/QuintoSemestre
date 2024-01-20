@@ -1,0 +1,9 @@
+let reverse = 
+    lam xs :: [Nat] ->
+        if xs == []
+        then []
+        else (reverse (tail xs)) ++ ((head xs) :: []) in
+let myList = 1::2::3::4::(6-1)::(2*3)::7::(16/2)::(99%10)::10::[] in
+( reverse myList )
+end
+end

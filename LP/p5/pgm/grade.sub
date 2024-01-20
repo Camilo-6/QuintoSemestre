@@ -1,0 +1,6 @@
+let getMyGrade = lam (x : Int) : Int + Bool ->
+                    if x > 5
+                    then inl_Bool(x)
+                    else inr_Int(False && True) in
+    (getMyGrade 3)
+end 

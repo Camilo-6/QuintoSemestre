@@ -1,0 +1,6 @@
+let fact = lam (p : (Int * Int)) : Int ->
+           if (fst p == 0)
+           then (snd p)
+           else ( fact (fst p - 1, fst p * snd p) ) in
+(fact (6,1))
+end

@@ -1,0 +1,10 @@
+let factTail =
+    lam x :: Nat ->
+    lam t :: Nat ->
+        if x == 0
+        then t
+        else ( (factTail (x-1) ) (x*t) ) in
+let num = 6 in
+( ( factTail num ) 1 )
+end
+end

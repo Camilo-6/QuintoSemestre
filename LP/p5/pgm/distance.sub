@@ -1,0 +1,6 @@
+let distanceFromO = lam ( p : {x:Float, y: Float, z:Float} ) : Float ->
+                    sqrt (pot p[x] + pot p[y] + pot p[z]) in
+let p = {x = 5, y= 3.5, z= 2} in
+        (distanceFromO p)
+end
+end

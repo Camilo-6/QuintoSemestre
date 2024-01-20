@@ -1,0 +1,7 @@
+let x = 3 in
+let f = lam y :: Nat -> x + y in
+let x = 5 in
+    (f 4)
+end
+end
+end
